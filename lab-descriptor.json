@@ -1,22 +1,93 @@
 {
     "broadArea": {
-        "name": "",
-        "link": ""
+        "name": "Computer Science and Engineering",
+        "link": "https://vlab.co.in/broad-area-computer-science-and-engineering"
     },
-    "lab": "",
-    "deployLab": ,
-    "phase": ,
-    "collegeName": "",
-    "baseUrl": "",
-    "introduction": "",
-    "experiments": [],
+    "lab": "Natural Language Processing",
+    "deployLab": true,
+    "phase": 2,
+    "collegeName": "IIITH",
+    "baseUrl": "nlp-iiith.vlabs.ac.in",
+    "introduction": "Natural Language is the language written or spoken by humans in their daily life. Natural Language Processing is an interdisciplinary field dealing with human-computer interaction and computer aided processing of human language. It combines major concepts from computer science, artificial intelligence, and linguistics.",
+    "experiments": [
+                       {
+                        "name": "Word Analysis",
+                        "short-name": "word-analysis",
+                        "repo": "https://github.com/virtual-labs/exp-word-analysis-iiith",
+                        "tag": "v1.0.0",
+                        "deploy": true
+                       },
+                       {
+                        "name": "Word Generation",
+                        "short-name": "word-generation",
+                        "repo": "https://github.com/virtual-labs/exp-word-generation-iiith",
+                        "tag": "v1.0.0",
+                        "deploy": true
+                       },
+                       {
+                        "name": "Morphology",
+                        "short-name": "morphology",
+                        "repo": "https://github.com/virtual-labs/exp-morphology-iiith",
+                        "tag": "v1.0.0",
+                        "deploy": true
+                       },
+                       {
+                        "name": "N-Grams",
+                        "short-name": "n-grams",
+                        "repo": "https://github.com/virtual-labs/exp-n-grams-iiith",
+                        "tag": "v1.0.0",
+                        "deploy": true
+                       },
+                       {
+                        "name": "N-Grams Smoothing",
+                        "short-name": "n-grams-smoothing",
+                        "repo": "https://github.com/virtual-labs/exp-n-grams-smoothing-iiith",
+                        "tag": "v1.0.0",
+                        "deploy": true
+                       },
+                       {
+                        "name": "POS Tagging: Hidden Markov Model",
+                        "short-name": "markov-model",
+                        "repo": "https://github.com/virtual-labs/exp-markov-model-iiith",
+                        "tag": "v1.0.0",
+                        "deploy": true
+                       },
+                       {
+                        "name": "POS Tagging: Viterbi Decoding",
+                        "short-name": "viterbi-decoding",
+                        "repo": "https://github.com/virtual-labs/exp-viterbi-decoding-iiith",
+                        "tag": "v1.0.0",
+                        "deploy": true
+                       },
+                       {
+                        "name": "Building POS Tagger",
+                        "short-name": "pos-tagger",
+                        "repo": "https://github.com/virtual-labs/exp-pos-tagger-iiith",
+                        "tag": "v1.0.0",
+                        "deploy": true
+                       },
+                       {
+                        "name": "Chunking",
+                        "short-name": "chunking",
+                        "repo": "https://github.com/virtual-labs/exp-chunking-iiith",
+                        "tag": "v1.0.0",
+                        "deploy": true
+                       },
+                       {
+                        "name": "Building Chunker",
+                        "short-name": "building-chunker",
+                        "repo": "https://github.com/virtual-labs/exp-building-chunker-iiith",
+                        "tag": "v1.0.0",
+                        "deploy": true
+                       } 
+                   ],
     "targetAudience": {
-        "UG": [],
-        "PG": []
+        "UG": ["B. Tech./ B.E in Computer Science & Information Technolog"],
+        "PG": ["Ph. D. Beginners"]
     },
-    "objective": "",
+    "objective": "To introduce the students with the basics of NLP which will empower them for developing advanced NLP tools and solving practical problems in the field.",
     "courseAlignment": {
         "description": "",
-        "universities": []
+        "universities": ["This virtual lab is aligned with an introductory course on Natural Language processing, which is usually offered as a first level elective in many curriculum."]
     }
 }

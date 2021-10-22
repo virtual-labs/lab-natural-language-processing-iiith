@@ -14,70 +14,70 @@
       "name": "Word Analysis",
       "short-name": "word-analysis",
       "repo": "https://github.com/virtual-labs/exp-word-analysis-iiith",
-      "tag": "v1.0.0",
+      "tag": "v1.0.1",
       "deploy": true
     },
     {
       "name": "Word Generation",
       "short-name": "word-generation",
       "repo": "https://github.com/virtual-labs/exp-word-generation-iiith",
-      "tag": "v1.0.0",
+      "tag": "v1.0.1",
       "deploy": true
     },
     {
       "name": "Morphology",
       "short-name": "morphology",
       "repo": "https://github.com/virtual-labs/exp-morphology-iiith",
-      "tag": "v1.0.0",
+      "tag": "v1.0.1",
       "deploy": true
     },
     {
       "name": "N-Grams",
       "short-name": "n-grams",
       "repo": "https://github.com/virtual-labs/exp-n-grams-iiith",
-      "tag": "v1.0.0",
+      "tag": "v1.0.1",
       "deploy": true
     },
     {
       "name": "N-Grams Smoothing",
       "short-name": "n-grams-smoothing",
       "repo": "https://github.com/virtual-labs/exp-n-grams-smoothing-iiith",
-      "tag": "v1.0.0",
+      "tag": "v1.0.1",
       "deploy": true
     },
     {
       "name": "POS Tagging: Hidden Markov Model",
       "short-name": "markov-model",
       "repo": "https://github.com/virtual-labs/exp-markov-model-iiith",
-      "tag": "v1.0.0",
+      "tag": "v1.0.1",
       "deploy": true
     },
     {
       "name": "POS Tagging: Viterbi Decoding",
       "short-name": "viterbi-decoding",
       "repo": "https://github.com/virtual-labs/exp-viterbi-decoding-iiith",
-      "tag": "v1.0.0",
+      "tag": "v1.0.1",
       "deploy": true
     },
     {
       "name": "Building POS Tagger",
       "short-name": "pos-tagger",
       "repo": "https://github.com/virtual-labs/exp-pos-tagger-iiith",
-      "tag": "v1.0.0",
+      "tag": "v1.0.1",
       "deploy": true
     },
     {
       "name": "Chunking",
       "short-name": "chunking",
       "repo": "https://github.com/virtual-labs/exp-chunking-iiith",
-      "tag": "v1.0.0",
+      "tag": "v1.0.1",
       "deploy": true
     },
     {
       "name": "Building Chunker",
       "short-name": "building-chunker",
       "repo": "https://github.com/virtual-labs/exp-building-chunker-iiith",
-      "tag": "v1.0.0",
+      "tag": "v1.0.1",
       "deploy": true
     }
   ],
@@ -94,5 +94,5 @@
   },
   "exp_name": "Building Chunker",
   "exp_short_name": "building-chunker",
-  "version": "v0.1.0"
+  "version": "v0.2.0"
 }

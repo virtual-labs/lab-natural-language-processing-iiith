@@ -14,7 +14,7 @@
       "name": "Word Analysis",
       "short-name": "word-analysis",
       "repo": "https://github.com/virtual-labs/exp-word-analysis-iiith",
-      "tag": "v1.0.1",
+      "tag": "v1.0.2",
       "deploy": true
     },
     {
@@ -28,14 +28,14 @@
       "name": "Morphology",
       "short-name": "morphology",
       "repo": "https://github.com/virtual-labs/exp-morphology-iiith",
-      "tag": "v1.0.1",
+      "tag": "v1.0.2",
       "deploy": true
     },
     {
       "name": "N-Grams",
       "short-name": "n-grams",
       "repo": "https://github.com/virtual-labs/exp-n-grams-iiith",
-      "tag": "v1.0.1",
+      "tag": "v1.0.2",
       "deploy": true
     },
     {
@@ -70,7 +70,7 @@
       "name": "Chunking",
       "short-name": "chunking",
       "repo": "https://github.com/virtual-labs/exp-chunking-iiith",
-      "tag": "v1.0.1",
+      "tag": "v1.0.2",
       "deploy": true
     },
     {
@@ -94,5 +94,5 @@
   },
   "exp_name": "Building Chunker",
   "exp_short_name": "building-chunker",
-  "version": "v0.2.0"
+  "version": "v0.3.0"
 }

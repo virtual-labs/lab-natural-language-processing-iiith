@@ -28,7 +28,7 @@
       "name": "Morphology",
       "short-name": "morphology",
       "repo": "https://github.com/virtual-labs/exp-morphology-iiith",
-      "tag": "v1.1.0",
+      "tag": "v1.1.1",
       "deploy": true
     },
     {
@@ -94,5 +94,5 @@
   },
   "exp_name": "Building Chunker",
   "exp_short_name": "building-chunker",
-  "version": "v0.13.0"
+  "version": "v0.14.0"
 }

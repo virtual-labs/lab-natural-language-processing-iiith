@@ -28,21 +28,21 @@
       "name": "Morphology",
       "short-name": "morphology",
       "repo": "https://github.com/virtual-labs/exp-morphology-iiith",
-      "tag": "v1.1.1",
+      "tag": "v1.1.2",
       "deploy": true
     },
     {
       "name": "N-Grams",
       "short-name": "n-grams",
       "repo": "https://github.com/virtual-labs/exp-n-grams-iiith",
-      "tag": "v1.0.5",
+      "tag": "v1.0.6",
       "deploy": true
     },
     {
       "name": "N-Grams Smoothing",
       "short-name": "n-grams-smoothing",
       "repo": "https://github.com/virtual-labs/exp-n-grams-smoothing-iiith",
-      "tag": "v1.0.6",
+      "tag": "v1.0.7",
       "deploy": true
     },
     {
@@ -70,7 +70,7 @@
       "name": "Chunking",
       "short-name": "chunking",
       "repo": "https://github.com/virtual-labs/exp-chunking-iiith",
-      "tag": "v1.0.8",
+      "tag": "v1.0.9",
       "deploy": true
     },
     {
@@ -94,5 +94,5 @@
   },
   "exp_name": "Building Chunker",
   "exp_short_name": "building-chunker",
-  "version": "v0.20.0"
+  "version": "v0.21.0"
 }

@@ -42,7 +42,7 @@
       "name": "N-Grams Smoothing",
       "short-name": "n-grams-smoothing",
       "repo": "https://github.com/virtual-labs/exp-n-grams-smoothing-iiith",
-      "tag": "v1.0.7",
+      "tag": "v1.0.9",
       "deploy": true
     },
     {
@@ -94,5 +94,5 @@
   },
   "exp_name": "Building Chunker",
   "exp_short_name": "building-chunker",
-  "version": "v0.21.0"
+  "version": "v0.22.0"
 }

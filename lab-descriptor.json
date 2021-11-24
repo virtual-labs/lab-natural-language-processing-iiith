@@ -14,7 +14,7 @@
       "name": "Word Analysis",
       "short-name": "word-analysis",
       "repo": "https://github.com/virtual-labs/exp-word-analysis-iiith",
-      "tag": "v1.0.2",
+      "tag": "v1.0.4",
       "deploy": true
     },
     {
@@ -94,5 +94,5 @@
   },
   "exp_name": "Building Chunker",
   "exp_short_name": "building-chunker",
-  "version": "v0.23.0"
+  "version": "v0.24.0"
 }

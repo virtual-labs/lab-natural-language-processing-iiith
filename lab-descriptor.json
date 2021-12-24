@@ -70,7 +70,7 @@
       "name": "Chunking",
       "short-name": "chunking",
       "repo": "https://github.com/virtual-labs/exp-chunking-iiith",
-      "tag": "v1.0.8",
+      "tag": "v1.0.9",
       "deploy": true
     },
     {
@@ -94,5 +94,5 @@
   },
   "exp_name": "Building Chunker",
   "exp_short_name": "building-chunker",
-  "version": "v0.26.0"
+  "version": "v0.27.0"
 }

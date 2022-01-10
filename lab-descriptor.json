@@ -4,6 +4,7 @@
     "link": "https://vlab.co.in/broad-area-computer-science-and-engineering"
   },
   "lab": "Natural Language Processing",
+  "lab_display_name": "Natural Language Processing",
   "deployLab": true,
   "phase": 2,
   "collegeName": "IIITH",
@@ -70,7 +71,7 @@
       "name": "Chunking",
       "short-name": "chunking",
       "repo": "https://github.com/virtual-labs/exp-chunking-iiith",
-      "tag": "v1.0.9",
+      "tag": "v1.1.0",
       "deploy": true
     },
     {
@@ -94,5 +95,5 @@
   },
   "exp_name": "Building Chunker",
   "exp_short_name": "building-chunker",
-  "version": "v0.27.0"
+  "version": "v0.28.0"
 }

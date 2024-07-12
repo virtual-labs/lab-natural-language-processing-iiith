@@ -1,7 +1,8 @@
 {
   "broadArea": {
     "name": "Computer Science and Engineering",
-    "link": "https://vlab.co.in/broad-area-computer-science-and-engineering"
+    "link": "https://vlab.co.in/broad-area-computer-science-and-engineering",
+    "code": "CSE"
   },
   "lab": "Natural Language Processing",
   "lab_display_name": "Natural Language Processing",

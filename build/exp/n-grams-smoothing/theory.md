@@ -1,33 +1,63 @@
-The standard N-gram models are trained from some corpus. The finiteness of the training corpus leads to the absence of some perfectly acceptable N-grams. This results in sparse bigram matrices. This method tend to underestimate the probability of strings that do not occur in their training corpus.
+N-gram language models are fundamental tools in Natural Language Processing (NLP) for estimating the probability of word sequences. However, real-world language data is often sparse, leading to zero probabilities for unseen N-grams. Smoothing techniques are used to address this issue by redistributing probability mass to unseen events, ensuring that every possible N-gram has a non-zero probability.
 
+---
 
-There are some techniques that can be used for assigning a non-zero probabilty to these 'zero probability bigrams'. This task of reevaluating some of the zero-probability and low-probabilty N-grams, and assigning them non-zero values, is called smoothing. Some of the techniques are: Add-One Smoothing, Witten-Bell Discounting, Good-Turing Discounting.
+### 1. N-Gram Models
 
-### Add-One Smoothing
+An **N-gram** is a contiguous sequence of N items (typically words) from a given text or speech. N-gram models are widely used in Natural Language Processing to estimate the probability of word sequences.
 
-In Add-One smooting, we add one to all the bigram counts before normalizing them into probabilities. This is called add-one smoothing.
+For example:
 
-### Application on unigrams
+- **Unigram:** N = 1 (single word)
+- **Bigram:** N = 2 (pair of words)
+- **Trigram:** N = 3 (three-word sequence)
 
-The unsmoothed maximum likelihood estimate of the unigram probability can be computed by dividing the count of the word by the total number of word tokens N.
+<center>
+<img src="images/ngram-models-example.png" alt="N-Gram Model Example" style="max-width: 700px; width: 100%; border: 1px solid #ccc; border-radius: 6px;"/>
+</center>
 
+The probability of a sentence using a bigram model (N=2) is calculated as:
 
-P(w<sub>x</sub>) = c(w<sub>x</sub>)/sum<sub>i</sub>{c(w<sub>i</sub>)}
-                 = c(w<sub>x</sub>)/N
+$$
+P(w_1, w_2, ..., w_n) = P(w_1) \prod_{i=2}^{n} P(w_i \mid w_{i-1})
+$$
 
+Here, \( P(w*i \mid w*{i-1}) \) is the probability of word \( w*i \) given the previous word \( w*{i-1} \).
 
-Let there be an adjusted count c<sup>*</sup>.</br>
-c<sub>i</sub><sup>*</sup> = (c <sub>i</sub>+1 * N/(N+V))</br>
-where where V is the total number of word types in the language.</br>
-Now, probabilities can be calculated by normalizing counts by N.</br>
-p<sub>i</sub><sup>*</sup> = (c <sub>i</sub>+1)/(N+V)
+---
 
+### 2. The Need for Smoothing
 
-### Application on bigrams
+In practice, many valid N-grams may not appear in the training corpus, resulting in zero probabilities. This is problematic for language modeling tasks, as it can make the probability of entire sentences zero. Smoothing techniques adjust the estimated probabilities to account for unseen N-grams.
 
-Normal bigram probabilities are computed by normalizing each row of counts by the unigram count:</br>
-P(w<sub>n</sub>|w<sub>n-1</sub>) = C(w<sub>n-1</sub>w<sub>n</sub>)/C(w<sub>n-1<sub>)
+<center>
+<img src="images/ngram-sparse-bigram-table.jpg" alt="Sparse Bigram Table Example" style="max-width: 650px; width: 100%; border: 1px solid #ccc; border-radius: 6px;"/>
+</center>
 
+_Example: Many valid bigrams (in red) are absent in the training corpus, leading to zero probabilities._
 
-For add-one smoothed bigram counts we need to augment the unigram count by the number of total word types in the vocabulary V:</br>
-p<sup>*</sup>(w<sub>n</sub>|w<sub>n-1</sub>) = ( C(w<sub>n-1</sub>w<sub>n</sub>)+1 )/( C(w<sub>n-1</sub>)+V ) 
+---
+
+### 3. Add-One (Laplace) Smoothing
+
+One of the simplest smoothing techniques is Add-One (Laplace) Smoothing. It works by adding one to each count before normalizing into probabilities:
+
+$$
+P_{Laplace}(w_i | w_{i-1}) = \frac{C(w_{i-1}, w_i) + 1}{C(w_{i-1}) + V}
+$$
+
+where \( C(w*{i-1}, w_i) \) is the count of the bigram, \( C(w*{i-1}) \) is the count of the previous word, and \( V \) is the vocabulary size.
+
+---
+
+### 4. Applications
+
+Smoothing is essential in applications such as speech recognition, machine translation, and spelling correction, where robust probability estimates are required even for rare or unseen word sequences.
+
+---
+
+### 5. Summary
+
+- N-gram models estimate the probability of word sequences.
+- Smoothing techniques like Add-One Smoothing prevent zero probabilities for unseen N-grams.
+- Smoothing improves the robustness and generalization of language models.

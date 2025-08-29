@@ -1,25 +1,26 @@
-**Q1**. Add-one smoothing works horribly in practice because of giving too much probability mass to unseen n-grams. Prove using an example.
+**1.** For the following corpus, manually compute the bigram probabilities for all word pairs using Add-One Smoothing. Compare your results with the simulation output.
 
-**Q2**. In Add-&delta; smoothing, we add a small value '&delta;' to the counts instead of one. Apply Add-&delta; smoothing to the below bigram count table where &delta;=0.02.
+    (eos) I booked a flight (eos) I took a flight (eos)
 
-|   |(eos)|John|Read|Fountainhead|Mary|a|Different|Book|She|By|Dickens|
-|---|---|---|---|---|---|---|---|---|---|---|---|
-|(eos)|0   |300 |0   |0   |300	|0   |0   |0   |300   |0   |0   |
-|John |0   |0   |300 |0   |0   |0   |0   |0   |0   |0   |0   |
-|Read |0   |0   |0   |300 |0   |600 |0   |0   |0   |0   |0   |
-|Fountainhead|300 |0   |0   |0   |0   |0   |0   |0   |0   |0   |0   |
-|Mary |0   |0   |300|0   |0   |0   |0   |0   |0   |0   |0   |
-|a | 0  |0   |0   |0   |0   |0   |300 |300 |0   |0   |0   |
-|Different|0   |0   |0   |0   |0   |0   |0   |300 |0   |0   |0   |
-|Book |300 |0   |0   |0   |0   |0   |0   |0   |0   |300 |0   |
-|She|0   |0   |0   |300 |0   |0   |0   |0   |0   |0   |0   |0   |
-|By |0   |0   |0   |0   |0   |0   |0   |0   |0   |0   |0   |300 |
-|Dickens|300 |0   |0   |0   |0   |0   |0   |0   |0   |0   |0   |
+**2.** Explain why smoothing is necessary in N-gram models. Provide examples from the experiment where smoothing changes the probability from zero to a non-zero value.
 
-N = 5100 V = 11
+**3.** Run the simulation with at least two different corpora. Observe and report how the bigram probability distributions change with and without smoothing.
 
+**4.** Given the following bigram counts, fill in the missing probabilities using Add-One Smoothing:
 
-Q3. Given S = Dickens read a book, find P(S)</br>
-**(a)** Using unsmoothed probability</br>
-**(b)** Applying Add-One smoothing.</br>
-**(c)** Applying Add-&delta; smoothing</br>
+| Previous Word | Next Word | Count |
+| ------------- | --------- | ----- |
+| I             | booked    | 3     |
+| I             | took      | 2     |
+| booked        | a         | 3     |
+| took          | a         | 2     |
+| a             | flight    | 5     |
+| flight        | eos       | 5     |
+
+- Calculate \( P(\text{booked} | I) \), \( P(\text{took} | I) \), and \( P(\text{flight} | a) \) using Add-One Smoothing (assume vocabulary size \( V = 6 \)).
+
+**5.** Describe a real-world NLP application where N-gram smoothing would be essential. Explain how zero probabilities could affect the application and how smoothing resolves this.
+
+---
+
+**Submit your answers as a PDF or text document. Include screenshots from the simulation where appropriate.**

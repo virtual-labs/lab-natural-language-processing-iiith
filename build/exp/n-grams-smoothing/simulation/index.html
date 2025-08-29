@@ -1,169 +1,82 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-    
-    <meta charset="utf-8"/>
-    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
-    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />
+    <title>N-Grams Smoothing Simulation</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="main-content">
+        <!-- Instructions Panel -->
+        <div class="instructions-panel">
+          <div id="instructionsTab" class="instructions-header">
+            <span>Instructions</span>
+            <span class="arrow-icon">&#9660;</span>
+          </div>
+          <div id="instructionsContent" class="instructions-content collapsed">
+            <ol class="instructions-list">
+              <li>Select a corpus from the dropdown.</li>
+              <li>Click 'Find Bigram Probabilities' to view the table.</li>
+              <li>
+                Fill in the bigram probabilities based on the corpus sentences.
+              </li>
+              <li>Use 'Check', 'Show Answer', or 'Reset' as needed.</li>
+              <li>Try the Sentence Probability Quiz at the bottom.</li>
+            </ol>
+          </div>
+        </div>
+        <!-- Two-Pane Layout -->
+        <div id="main-2pane-container">
+          <!-- Left Pane: Corpus selection, sentences, and button -->
+          <div id="left-pane">
+            <form id="corpusForm">
+              <select id="corpus" name="corpus">
+                <option value="">---Select a corpus---</option>
+                <option value="corpus-a.txt">Corpus A</option>
+                <option value="corpus-b.txt">Corpus B</option>
+                <option value="corpus-c.txt">Corpus C</option>
+                <option value="corpus-d.txt">Corpus D</option>
+              </select>
+            </form>
+            <div id="corpus-sentences"></div>
+            <div id="find-bigram-btn-container"></div>
+          </div>
+          <!-- Right Pane: Output table and controls -->
+          <div id="right-pane">
+            <div id="output-table-container"></div>
+            <div id="feedback"></div>
+            <div id="sentence-probability-container"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const tab = document.getElementById("instructionsTab");
+        const content = document.getElementById("instructionsContent");
+        const arrow = document.querySelector(".arrow-icon");
+        // Start collapsed
+        content.style.display = "none";
+        arrow.innerHTML = "&#9660;"; // Down arrow
 
-    <link href="css/bootstrap.min.css" rel="stylesheet"/>
-    <!-- <link href="css/style.css" rel="stylesheet"/> -->
-
-    <style type="text/css">
-        table,
-        th,
-        td {
-            border: 1px solid black;
-            border-collapse: collapse;
-        }
-    </style>
-    <script src="js/jquery-1.7.1.min.js"></script>
-
-    <script type="text/javascript">
-        $(document).ready(function() {
-            //the function is called once the document loads     
-
-            $('#hidden-content').load('default.html #experiment',
-                function(response, status, xhr) {
-                    //loads the default.html #lab section into the
-                    //#hidden-content
-
-                    $('#container').load('content.html #experiment',
-                        function(response, status, xhr) {
-                            //loads the content.html #lab section into the
-                            //#container
-
-                            homePage = $("div#experiment-header-heading a").html();
-
-                            thisPage = $("article#experiment-article header#experiment-article-heading").html();
-
-                            breadcrumb = "<font color='white'>" + "<a href='../../index.html'>Home<a/> \> <a href='../index.html'>" + homePage + "</a> \> <a href='index.html'>" + thisPage + "</a>" + "</font>";
-
-                            $("article#experiment-article div#experiment-article-breadcrumb").html(breadcrumb);
-
-                            $("#container .default").each(function() {
-                                // Extracts all elements with class = "default"
-                                // and top down
-
-                                sectionId = $(this).attr('id');
-                                sectionContent = $("#hidden-content #" +
-                                    sectionId).html();
-                                $("#container #" + sectionId).html(sectionContent);
-                            });
-
-                            $("#container #experiment-article-sections > section").each(function() {
-                                // loads all the content in the respective
-                                // sections with the corresponding section headings 
-
-                                sectionId = $(this).attr('id');
-                                headerId = $("#" + sectionId + "-heading").html();
-                                iconId = $("#" + sectionId + "-icon").html();
-
-                                $("#container #experiment-article-navigation ul").
-                                append("<li> <a href=\'#\' id=\'" + sectionId +
-                                    "-menu\'>" + iconId + "<br />" +
-                                    headerId + "</a></li>");
-                            });
-
-                            /*			
-          $("#experiment-article-sections").after(
-            "<div id='experiment-article-sections-view'> </div>");
-	  $("#experiment-article-sections-view").html($(
-            "#experiment-article-sections section:first").html()); */
-
-                            $("#experiment-article-sections section").hide();
-                            //hide all the experiment sections
-
-                            $("#experiment-article-sections section:first").show();
-                            //show only the first experiment section when
-                            //the experiment page loads
-
-                            $("#experiment-article-navigation ul > li a").live('click',
-                                function() {
-                                    //enables the navigation
-
-                                    menuId = $(this).attr('id');
-                                    // this points to the current element
-
-                                    sectionId = menuId.replace(/-menu/i, "");
-                                    /*
-	    $("#experiment-article-sections-view").html($(
-            "#experiment-article-sections #" + 
-            sectionId).html());
-	    */
-
-                                    $("#experiment-article-sections section").hide();
-                                    $("#experiment-article-sections #" + sectionId).show();
-                                    $("#experiment-article-sections #" + sectionId + " #smoothing").load("experiment10.php");
-                                });
-                        });
-                });
-
-        });
-
-        function selectCorpus() {
-            var corpus = document.getElementById("corpus");
-            theIndx = corpus.selectedIndex;
-            corpus_name = corpus.options[theIndx].value;
-            var cno = parseFloat(corpus_name);
-            $('#display').load('experiment10-0.php?fileno=' + cno);
-        }
+        tab.onclick = function () {
+          if (content.style.display === "none") {
+            content.style.display = "block";
+            arrow.innerHTML = "&#9650;"; // Up arrow
+          } else {
+            content.style.display = "none";
+            arrow.innerHTML = "&#9660;"; // Down arrow
+          }
+        };
+      });
     </script>
-
-
-<body class="index" id="page-top">
-    
-            
-            <!-- <div class="container-fluid" style="margin-left: 35px; margin-right: 35px;"> -->
-                
-                <div class="row">
-                    
-                    <div class="col-md-10 lab-list-col-10">
-
-                        <!--edit -->
-                        <!-- <h1 class="text-h1-lightblue">N-Grams Smoothing</h1> -->
-                        <div class="content" id="experiment-article-section-4-content">
-                            <div id="smoothing">
-                                <div align="center" id="mainContainer">
-
-                                    <form action="javascript:selectCorpus()" method="post" name="selector" target="_parent">
-                                        <select autocomplete="off" id="corp_opt" name="corp_opt" onchange="selectCorpus(this.value);">";
-                                            <option select="selected" value="-1">---Select a corpus---</option>";
-                                            <option value="1">Corpus A</option>
-                                            <option value="2">Corpus B</option>
-                                            <option value="3">Corpus C</option>
-                                            <option value="4">Corpus D</option>
-                                        </select>
-                                    </form>
-                                    <div id="display"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            <!-- </div> -->
-            <!-- =================================================================================================================================== -->
-
-       
-
-
-    <script src="js/jquery.js"></script>
-
-    <script type="text/javascript">
-        function selectCorpus() {
-            var corp = document.getElementById("corp_opt");
-            theIndx = corp.selectedIndex;
-            corp_id = corp.options[theIndx].value;
-            if (corp_id == "-1") {
-                alert("Select a corpus");
-                return;
-            }
-            var cno = parseFloat(corp_id);
-
-            $('#display').load('experiment10-0.php?fileno=' + cno);
-        }
-
-    </script>
-
-<script src="..\assets\js\iframeResize.js"></script>
+    <script src="js/mobile-detection.js"></script>
+    <script src="js/main.js"></script>
+  <script src="..\assets\js\iframeResize.js"></script>
         
-        </body><!-- jQuery --></html>
+        </body>
+</html>

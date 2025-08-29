@@ -1,0 +1,608 @@
+/* Root color variables for easy theme changes */
+:root {
+  --color-primary: #4361ee;
+  --color-primary-light: #4895ef;
+  --color-primary-dark: #3a0ca3;
+  --color-secondary: #4cc9f0;
+  --color-accent: #f72585;
+  --color-success: #4caf50;
+  --color-error: #f44336;
+  --color-neutral-50: #f8fafc;
+  --color-neutral-100: #f1f5f9;
+  --color-neutral-200: #e2e8f0;
+  --color-neutral-300: #cbd5e1;
+  --color-neutral-800: #22223b;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --shadow-md: 0 4px 6px -1px rgba(67, 97, 238, 0.08),
+    0 2px 4px -1px rgba(67, 97, 238, 0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(67, 97, 238, 0.1),
+    0 4px 6px -2px rgba(67, 97, 238, 0.05);
+}
+
+/* General Layout */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--color-neutral-50);
+  color: var(--color-neutral-800);
+  margin: 0;
+  padding: 0;
+  font-size: 1.18em;
+}
+
+.container {
+  width: 100vw;
+  min-height: 100vh;
+  background: var(--color-neutral-50);
+  margin: 0;
+  padding: 0;
+}
+
+.main-content {
+  width: 80vw;
+  max-width: 1200px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 1.2rem;
+  box-shadow: var(--shadow-md);
+  padding: 2rem 1.5rem;
+  box-sizing: border-box;
+  font-size: 1.12em;
+}
+
+/* Instructions Panel - Remove bottom curves like word analysis */
+.instructions-panel {
+  width: 100%;
+  margin: 0 auto 1.5rem auto;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  border: none;
+}
+
+.instructions-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: #22223b;
+  background: linear-gradient(90deg, #6ef2e6 0%, #4895ef 100%);
+  margin: 0;
+  padding: 1.1rem 0;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 1.2rem 1.2rem 0 0; /* Only top curves */
+  transition: background 0.2s;
+  letter-spacing: 0.01em;
+  box-shadow: var(--shadow-md);
+}
+
+.instructions-header .arrow-icon {
+  margin-left: 0.7em;
+  font-size: 1.5em;
+  color: #3a0ca3;
+  transition: transform 0.2s;
+}
+
+.instructions-content {
+  background: #fff;
+  color: #22223b;
+  border-radius: 0; /* No curves at bottom */
+  padding: 1.2rem 2rem 1.2rem 2rem;
+  font-size: 1.18em;
+  margin: 0;
+  border-top: 1px solid var(--color-neutral-200);
+  box-shadow: var(--shadow-md);
+}
+
+.instructions-list {
+  margin: 0;
+  padding-left: 1.2em;
+  font-size: 1.1em;
+}
+
+.instructions-list li {
+  margin-bottom: 0.7em;
+}
+
+/* Two-Pane Layout - Fixed proportions and containment */
+#main-2pane-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  overflow: hidden; /* Prevent content from spilling out */
+}
+
+/* Left pane - exactly 25% width */
+#left-pane {
+  flex: 0 0 25% !important; /* Fixed 25% width, no grow/shrink */
+  width: 25% !important;
+  max-width: 25% !important;
+  min-width: 280px; /* Minimum for usability */
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  box-sizing: border-box;
+  font-size: 1.15em;
+  overflow: hidden; /* Prevent overflow */
+}
+
+/* Right pane - takes remaining 75% width */
+#right-pane {
+  flex: 1 !important; /* Takes all remaining space (75%) */
+  width: 75% !important;
+  max-width: 75% !important;
+  min-width: 0; /* Allow shrinking if needed */
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  box-sizing: border-box;
+  font-size: 1.15em;
+  overflow-x: auto; /* Allow horizontal scroll for large tables */
+  overflow-y: visible;
+}
+
+/* Dropdown - shorter width in left pane */
+select {
+  width: 85% !important; /* Reduced from 100% to 85% */
+  max-width: 250px !important; /* Reduced from 320px to 250px */
+  padding: 0.9rem 1.3rem;
+  border: 2px solid var(--color-primary);
+  border-radius: 0.7rem;
+  font-size: 1.22em;
+  margin-bottom: 1.2rem;
+  background: #fff;
+  color: var(--color-neutral-800);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 6px rgba(67, 97, 238, 0.06);
+  font-weight: 500;
+}
+
+select:focus {
+  border-color: var(--color-primary-dark);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.12);
+}
+
+/* Corpus Sentences */
+.corpus-content {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 1.13em;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.corpus-sentence {
+  margin-bottom: 0.25em;
+  padding-left: 1.5em;
+  color: #3a0ca3;
+  font-size: 1.18em;
+  font-weight: 500;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Buttons */
+.sim-button,
+button {
+  background: linear-gradient(
+    90deg,
+    var(--color-primary) 60%,
+    var(--color-secondary) 100%
+  );
+  color: #fff;
+  border: none;
+  border-radius: 2.2rem;
+  font-size: 1.28rem;
+  font-weight: 700;
+  padding: 0.95rem 2.5rem;
+  margin: 0.4rem;
+  box-shadow: 0 2px 6px rgba(67, 97, 238, 0.08);
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  min-width: 140px;
+  min-height: 48px;
+  letter-spacing: 0.01em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sim-button:disabled,
+button:disabled {
+  background: #bfc9d1;
+  color: #fff;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.sim-button:hover:not(:disabled),
+button:hover:not(:disabled) {
+  background: linear-gradient(
+    90deg,
+    var(--color-primary-dark) 60%,
+    var(--color-accent) 100%
+  );
+  box-shadow: 0 4px 12px rgba(67, 97, 238, 0.12);
+  transform: translateY(-2px);
+}
+
+.button-row {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* Table Styling - proper containment */
+.transition-matrix-table {
+  width: 100%;
+  max-width: 100%; /* Ensure table doesn't exceed container */
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  background: #fff;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-neutral-200);
+  table-layout: auto; /* Allow flexible column sizing */
+  box-sizing: border-box;
+}
+
+/* Table container to handle overflow */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: visible;
+  box-sizing: border-box;
+}
+
+.transition-matrix-table th,
+.transition-matrix-table td {
+  border: 1px solid var(--color-neutral-300);
+  padding: 0.85em 0.7em;
+  text-align: center;
+  font-size: 1.08em;
+  box-sizing: border-box;
+  min-width: 60px; /* Minimum column width */
+}
+
+.transition-matrix-table th {
+  background: var(--color-neutral-100);
+  color: var(--color-primary-dark);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.transition-matrix-table tr:nth-child(even) td {
+  background: var(--color-neutral-50);
+}
+
+.transition-matrix-table input.ngram-input {
+  width: 100%;
+  min-width: 48px;
+  max-width: 80px;
+  padding: 0.45em 0.7em;
+  font-size: 1.08em;
+  border: 2px solid var(--color-neutral-300);
+  border-radius: 0.7rem;
+  background: #fff;
+  color: var(--color-neutral-800);
+  box-sizing: border-box;
+  text-align: center;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.transition-matrix-table input.ngram-input:focus {
+  border-color: var(--color-primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+}
+
+.transition-matrix-table input.ngram-input.correct {
+  border-color: var(--color-success);
+  background: rgba(76, 175, 80, 0.1);
+}
+
+.transition-matrix-table input.ngram-input.incorrect {
+  border-color: var(--color-error);
+  background: rgba(244, 67, 54, 0.1);
+}
+
+/* Feedback */
+#feedback {
+  margin: 1rem 0;
+  font-weight: 600;
+  text-align: center;
+  color: var(--color-error);
+}
+
+#feedback span {
+  color: var(--color-success);
+}
+
+#sentence-probability-container {
+  margin-top: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.sentence-prob-input-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-top: 0.7em;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.sentence-prob-quiz {
+  background: var(--color-neutral-100);
+  border-radius: 1rem;
+  padding: 1.2rem 2rem;
+  border: 1px solid var(--color-neutral-200);
+  margin-bottom: 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.sentence-prob-quiz > div:first-child,
+#sentenceProbFeedback {
+  text-align: center;
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sentence-prob-table {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  box-sizing: border-box;
+}
+
+.sentence-prob-table th,
+.sentence-prob-table td {
+  border: 1px solid var(--color-neutral-300);
+  padding: 0.7em 1em;
+  text-align: center;
+  font-size: 1.08em;
+  box-sizing: border-box;
+}
+
+.sentence-prob-table th {
+  background: var(--color-neutral-100);
+  color: var(--color-primary-dark);
+  font-weight: 700;
+}
+
+#sentenceProbInput {
+  width: 140px;
+  padding: 0.5em 1em;
+  font-size: 1.08em;
+  border: 2px solid var(--color-neutral-300);
+  border-radius: 0.7rem;
+  margin-right: 0.7em;
+  background: #fff;
+  color: var(--color-neutral-800);
+  box-sizing: border-box;
+}
+
+#sentenceProbFeedback {
+  margin-top: 0.7em;
+  font-weight: 600;
+  color: var(--color-error);
+}
+
+#sentenceProbFeedback span {
+  color: var(--color-success);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  #main-2pane-container {
+    gap: 1rem; /* Reduce gap on smaller screens */
+  }
+
+  #left-pane {
+    min-width: 250px; /* Slightly smaller minimum width */
+  }
+}
+
+@media (max-width: 900px) {
+  .main-content {
+    width: 98vw;
+    padding: 1rem 0.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center all content horizontally */
+  }
+
+  #main-2pane-container {
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center; /* Center child elements horizontally */
+  }
+
+  /* Left pane becomes centered and appears first */
+  #left-pane {
+    flex: none !important;
+    max-width: 90% !important;
+    width: 90% !important;
+    min-width: 0 !important;
+    margin: 0 auto 1rem auto; /* Center horizontally with bottom margin */
+    order: 1; /* First in mobile */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content within the pane */
+  }
+
+  /* Right pane appears below left pane and centered */
+  #right-pane {
+    flex: none !important;
+    max-width: 90% !important;
+    width: 90% !important;
+    min-width: 0 !important;
+    margin: 0 auto; /* Center horizontally */
+    order: 2; /* Second in mobile */
+    box-sizing: border-box;
+    overflow-x: auto;
+    overflow-y: visible;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content within the pane */
+  }
+
+  select {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .main-content {
+    padding: 0.5rem 0.2rem;
+  }
+
+  .instructions-panel {
+    padding: 0.7rem 0.5rem;
+  }
+
+  .sentence-prob-quiz {
+    padding: 0.7rem 0.5rem;
+  }
+
+  .transition-matrix-table th,
+  .transition-matrix-table td,
+  .sentence-prob-table th,
+  .sentence-prob-table td {
+    padding: 0.3em 0.2em;
+    font-size: 0.95em;
+  }
+
+  .sim-button,
+  button {
+    font-size: 1rem;
+    padding: 0.7rem 1.2rem;
+    min-width: 100px;
+  }
+
+  .sentence-prob-input-row {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  #sentenceProbInput {
+    width: 120px;
+    margin-right: 0;
+  }
+
+  /* Additional mobile centering for very small screens */
+  #left-pane,
+  #right-pane {
+    max-width: 95% !important;
+    width: 95% !important;
+  }
+}
+
+/* Ensure all content is properly contained */
+* {
+  box-sizing: border-box;
+}
+
+/* Additional table overflow handling */
+#right-pane table {
+  table-layout: auto;
+  word-wrap: break-word;
+}
+
+/* Ensure proper sizing for large tables like Corpus C */
+@media (min-width: 901px) {
+  .transition-matrix-table {
+    font-size: 0.95em; /* Slightly smaller font to fit more content */
+  }
+
+  .transition-matrix-table th,
+  .transition-matrix-table td {
+    padding: 0.7em 0.5em; /* Slightly tighter padding */
+  }
+
+  .transition-matrix-table input.ngram-input {
+    max-width: 70px; /* Slightly smaller input fields */
+    padding: 0.4em 0.5em;
+  }
+}
+
+/* Landscape orientation alert styles */
+.landscape-alert {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 2rem;
+  text-align: center;
+}
+
+.landscape-alert h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--color-primary-light);
+}
+
+.landscape-alert p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  max-width: 600px;
+}
+
+.landscape-alert .rotate-icon {
+  font-size: 3rem;
+  margin: 1rem 0;
+  animation: rotate 2s infinite;
+  color: var(--color-secondary);
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(90deg);
+  }
+  75% {
+    transform: rotate(90deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

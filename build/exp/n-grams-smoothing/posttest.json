@@ -1,0 +1,158 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "What is the main problem that smoothing solves in N-gram language models?",
+      "answers": {
+        "a": "It reduces the size of the vocabulary",
+        "b": "It assigns non-zero probabilities to unseen N-grams",
+        "c": "It increases the speed of computation",
+        "d": "It removes stopwords from the corpus"
+      },
+      "explanations": {
+        "a": "Incorrect. Smoothing does not reduce vocabulary size.",
+        "b": "Correct! Smoothing ensures that unseen N-grams have non-zero probabilities.",
+        "c": "Incorrect. Smoothing does not affect computational speed.",
+        "d": "Incorrect. Smoothing is unrelated to stopword removal."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "In Add-One Smoothing, what is added to each bigram count?",
+      "answers": {
+        "a": "Zero",
+        "b": "One",
+        "c": "The vocabulary size",
+        "d": "The total number of bigrams"
+      },
+      "explanations": {
+        "a": "Incorrect. One is added, not zero.",
+        "b": "Correct! Add-One Smoothing adds one to every bigram count.",
+        "c": "Incorrect. The vocabulary size is added to the denominator, not to each count.",
+        "d": "Incorrect. The total number of bigrams is not added to each count."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Given a vocabulary size of 5 and a bigram count C('the', 'cat') = 2, and C('the') = 4, what is the Add-One smoothed probability P('cat'|'the')?",
+      "answers": {
+        "a": "2/4",
+        "b": "3/9",
+        "c": "2/9",
+        "d": "3/4"
+      },
+      "explanations": {
+        "a": "Incorrect. This is the unsmoothed probability.",
+        "b": "Correct! Add-One Smoothing: (2+1)/(4+5) = 3/9.",
+        "c": "Incorrect. This does not apply Add-One Smoothing correctly.",
+        "d": "Incorrect. This is not the correct formula."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "Which smoothing technique is considered a simple baseline for N-gram models?",
+      "answers": {
+        "a": "Good-Turing Smoothing",
+        "b": "Kneser-Ney Smoothing",
+        "c": "Add-One (Laplace) Smoothing",
+        "d": "Backoff Smoothing"
+      },
+      "explanations": {
+        "a": "Incorrect. Good-Turing is more advanced.",
+        "b": "Incorrect. Kneser-Ney is more advanced.",
+        "c": "Correct! Add-One Smoothing is the simplest and most basic smoothing technique.",
+        "d": "Incorrect. Backoff is a different approach."
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "Why is Add-One Smoothing not always preferred for real-world language modeling?",
+      "answers": {
+        "a": "It is too complex to implement",
+        "b": "It can overestimate the probability of unseen N-grams",
+        "c": "It requires removing stopwords",
+        "d": "It only works for unigrams"
+      },
+      "explanations": {
+        "a": "Incorrect. Add-One Smoothing is simple to implement.",
+        "b": "Correct! Add-One Smoothing tends to overestimate probabilities for unseen N-grams, making it less accurate.",
+        "c": "Incorrect. Smoothing does not require stopword removal.",
+        "d": "Incorrect. Add-One Smoothing can be used for any N-gram order."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "Which of the following is the correct formula for Add-One smoothed bigram probability?",
+      "answers": {
+        "a": "P(wi|wi-1) = (C(wi-1, wi) + 1) / (C(wi-1) + V)",
+        "b": "P(wi|wi-1) = C(wi-1, wi) / (C(wi-1) + 1)",
+        "c": "P(wi|wi-1) = (C(wi-1, wi) - 1) / (C(wi-1) + V)",
+        "d": "P(wi|wi-1) = (C(wi-1, wi) + V) / (C(wi-1) + 1)"
+      },
+      "explanations": {
+        "a": "Correct! This is the formula for Add-One (Laplace) Smoothing.",
+        "b": "Incorrect. The numerator should add one, not the denominator.",
+        "c": "Incorrect. The numerator should add one, not subtract.",
+        "d": "Incorrect. The numerator should add one, not the vocabulary size."
+      },
+      "correctAnswer": "a",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "If a bigram ('she', 'likes') appears 0 times in the corpus, C('she') = 2, and V = 5, what is the Add-One smoothed probability P('likes'|'she')?",
+      "answers": {
+        "a": "0/2",
+        "b": "1/7",
+        "c": "1/5",
+        "d": "2/7"
+      },
+      "explanations": {
+        "a": "Incorrect. This is the unsmoothed probability.",
+        "b": "Correct! (0+1)/(2+5) = 1/7.",
+        "c": "Incorrect. The denominator should be 2+5, not just 5.",
+        "d": "Incorrect. The numerator should be 1, not 2."
+      },
+      "correctAnswer": "b",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "Which of the following tasks would most benefit from N-gram smoothing?",
+      "answers": {
+        "a": "Predicting the next word in a sentence",
+        "b": "Counting the number of sentences",
+        "c": "Sorting words alphabetically",
+        "d": "Finding the longest word"
+      },
+      "explanations": {
+        "a": "Correct! Smoothing is crucial for next-word prediction to avoid zero probabilities.",
+        "b": "Incorrect. Sentence counting does not require smoothing.",
+        "c": "Incorrect. Alphabetical sorting is unrelated.",
+        "d": "Incorrect. Finding the longest word does not use smoothing."
+      },
+      "correctAnswer": "a",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "What happens to the probability of seen N-grams after smoothing is applied?",
+      "answers": {
+        "a": "It always increases",
+        "b": "It always decreases",
+        "c": "It may decrease slightly to allow for unseen N-grams",
+        "d": "It becomes zero"
+      },
+      "explanations": {
+        "a": "Incorrect. Smoothing redistributes probability mass, so seen N-gram probabilities may decrease.",
+        "b": "Incorrect. It does not always decrease, but often does.",
+        "c": "Correct! Smoothing slightly decreases the probability of seen N-grams to allocate probability to unseen ones.",
+        "d": "Incorrect. Smoothing prevents zero probabilities."
+      },
+      "correctAnswer": "c",
+      "difficulty": "advanced"
+    }
+  ]
+}

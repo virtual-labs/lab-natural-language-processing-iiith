@@ -1,0 +1,158 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "What is the main purpose of an N-gram language model?",
+      "answers": {
+        "a": "To generate random sentences",
+        "b": "To estimate the probability of word sequences",
+        "c": "To translate text between languages",
+        "d": "To count the number of words in a text"
+      },
+      "explanations": {
+        "a": "Incorrect. While N-gram models can generate sentences, their main purpose is to estimate probabilities.",
+        "b": "Correct! N-gram models estimate the probability of sequences of words in a language.",
+        "c": "Incorrect. Translation is not the primary function of N-gram models.",
+        "d": "Incorrect. Word counting does not require N-gram modeling."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Which of the following is a bigram?",
+      "answers": {
+        "a": "the",
+        "b": "the cat",
+        "c": "cat sat on",
+        "d": "sat"
+      },
+      "explanations": {
+        "a": "Incorrect. This is a unigram (single word).",
+        "b": "Correct! A bigram is a sequence of two words.",
+        "c": "Incorrect. This is a trigram (three words).",
+        "d": "Incorrect. This is a unigram."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Why do we need smoothing in N-gram language models?",
+      "answers": {
+        "a": "To make the model run faster",
+        "b": "To handle zero probabilities for unseen N-grams",
+        "c": "To increase the vocabulary size",
+        "d": "To remove stopwords"
+      },
+      "explanations": {
+        "a": "Incorrect. Smoothing does not affect model speed.",
+        "b": "Correct! Smoothing assigns non-zero probabilities to unseen N-grams.",
+        "c": "Incorrect. Smoothing does not change the vocabulary size.",
+        "d": "Incorrect. Smoothing is unrelated to stopword removal."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "What does Add-One (Laplace) Smoothing do to the counts in an N-gram model?",
+      "answers": {
+        "a": "Subtracts one from each count",
+        "b": "Adds one to each count",
+        "c": "Multiplies each count by two",
+        "d": "Removes all zero counts"
+      },
+      "explanations": {
+        "a": "Incorrect. Add-One Smoothing increases each count by one.",
+        "b": "Correct! Add-One Smoothing adds one to every observed and unobserved count.",
+        "c": "Incorrect. Multiplication is not used in Add-One Smoothing.",
+        "d": "Incorrect. It does not remove zero counts, but prevents them."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "If a bigram never appears in the training corpus, what is its probability in a maximum likelihood estimate (without smoothing)?",
+      "answers": {
+        "a": "One",
+        "b": "Zero",
+        "c": "Depends on the vocabulary size",
+        "d": "Negative"
+      },
+      "explanations": {
+        "a": "Incorrect. Unseen bigrams get zero probability.",
+        "b": "Correct! Unseen bigrams have zero probability without smoothing.",
+        "c": "Incorrect. The probability is zero regardless of vocabulary size.",
+        "d": "Incorrect. Probabilities cannot be negative."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "What is the effect of smoothing on the probability distribution of N-grams?",
+      "answers": {
+        "a": "It makes the distribution more uniform",
+        "b": "It increases the probability of seen N-grams only",
+        "c": "It decreases the probability of all N-grams to zero",
+        "d": "It has no effect"
+      },
+      "explanations": {
+        "a": "Correct! Smoothing redistributes probability mass, making the distribution more uniform.",
+        "b": "Incorrect. Smoothing also assigns probability to unseen N-grams.",
+        "c": "Incorrect. Smoothing prevents zero probabilities.",
+        "d": "Incorrect. Smoothing changes the distribution."
+      },
+      "correctAnswer": "a",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "Which of the following is a limitation of Add-One Smoothing?",
+      "answers": {
+        "a": "It can overestimate the probability of unseen N-grams",
+        "b": "It requires a very large corpus",
+        "c": "It cannot be used for bigrams",
+        "d": "It removes all rare words"
+      },
+      "explanations": {
+        "a": "Correct! Add-One Smoothing tends to overestimate probabilities for unseen N-grams.",
+        "b": "Incorrect. Add-One Smoothing does not require a large corpus.",
+        "c": "Incorrect. It is commonly used for bigrams and higher-order N-grams.",
+        "d": "Incorrect. Smoothing does not remove words."
+      },
+      "correctAnswer": "a",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "How does the vocabulary size (V) affect the denominator in Add-One Smoothing for bigram probabilities?",
+      "answers": {
+        "a": "It is added to the count of the previous word",
+        "b": "It is subtracted from the count of the previous word",
+        "c": "It is multiplied by the count of the previous word",
+        "d": "It has no effect"
+      },
+      "explanations": {
+        "a": "Correct! The denominator is the count of the previous word plus the vocabulary size.",
+        "b": "Incorrect. The vocabulary size is not subtracted.",
+        "c": "Incorrect. The vocabulary size is not multiplied.",
+        "d": "Incorrect. The vocabulary size is important in smoothing."
+      },
+      "correctAnswer": "a",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "Which of the following is a real-world application of N-gram smoothing?",
+      "answers": {
+        "a": "Speech recognition",
+        "b": "Sorting numbers",
+        "c": "Image classification",
+        "d": "Network routing"
+      },
+      "explanations": {
+        "a": "Correct! N-gram smoothing is crucial in speech recognition and other NLP tasks.",
+        "b": "Incorrect. Sorting numbers does not use N-gram smoothing.",
+        "c": "Incorrect. Image classification is not related to N-gram smoothing.",
+        "d": "Incorrect. Network routing does not use N-gram smoothing."
+      },
+      "correctAnswer": "a",
+      "difficulty": "advanced"
+    }
+  ]
+}

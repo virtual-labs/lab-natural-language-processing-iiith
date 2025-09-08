@@ -37,7 +37,7 @@
       "name": "N-Grams",
       "short-name": "n-grams",
       "repo": "https://github.com/virtual-labs/exp-n-grams-iiith",
-      "tag": "v1.0.8",
+      "tag": "v1.0.9",
       "deploy": true
     },
     {
@@ -58,14 +58,14 @@
       "name": "POS Tagging: Viterbi Decoding",
       "short-name": "viterbi-decoding",
       "repo": "https://github.com/virtual-labs/exp-viterbi-decoding-iiith",
-      "tag": "v1.0.3",
+      "tag": "v1.0.4",
       "deploy": true
     },
     {
       "name": "Building POS Tagger",
       "short-name": "pos-tagger",
       "repo": "https://github.com/virtual-labs/exp-pos-tagger-iiith",
-      "tag": "v1.0.2",
+      "tag": "v1.0.3",
       "deploy": true
     },
     {
@@ -79,7 +79,7 @@
       "name": "Building Chunker",
       "short-name": "building-chunker",
       "repo": "https://github.com/virtual-labs/exp-building-chunker-iiith",
-      "tag": "v1.0.3",
+      "tag": "v1.0.4",
       "deploy": true
     }
   ],
